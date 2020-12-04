@@ -1,11 +1,13 @@
 
-## demo-base
+## 说明
 
-
-## 自定义通用操作
-该工程可以作为一个基础工程。
+demo-project-base 工程是基于springboot的一个基础工程。
 
 由SpringBoot + Mybatis + TK.Mybatis 组成主体结构，方便自动生成代码。
+
+不知不觉内容在增加，大概列举一下：
+
+## 自定义通用操作
 
 同时，包中包含一条龙式的通用操作示例
 
