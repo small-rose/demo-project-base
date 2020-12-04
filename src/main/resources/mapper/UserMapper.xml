@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaocai.base.demo.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.xiaocai.base.demo.model.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+  </resultMap>
+
+
+
+  <select id="selectListByUser" parameterType="com.xiaocai.base.demo.model.User" resultMap="BaseResultMap">
+    select * from user
+    <where>
+      <if test="user.name != null and user.name != '' ">
+        and  name like CONCAT('%', CONCAT(#{user.name}),'%')
+      </if>
+      <if test="user.age != null and user.age != '' ">
+        and  age = #{user.age}
+      </if>
+      <if test="user.email != null and user.email != '' ">
+        and email like CONCAT('%', CONCAT(#{user.email}),'%')
+      </if>
+    </where>
+  </select>
+
+  <select id="selectSpecialAgeOver20"  parameterType="com.xiaocai.base.demo.model.User" resultMap="BaseResultMap" >
+    select * from user
+    <where>
+      age > #{age}
+    </where>
+  </select>
+
+</mapper>
